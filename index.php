@@ -8,5 +8,6 @@
 	<body>
 		<h1>Victory</h1><br>
 		Victory
+		fetch
 	</body>
 </html>

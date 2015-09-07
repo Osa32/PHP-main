@@ -1,4 +1,5 @@
 <?php
+//----------------abstract---------------
 	abstract class Car {
 		public $petrol;
 		function startEngine(){
@@ -21,4 +22,21 @@
 	$myCar = new InjectorCar();
 	$myCar->startEngine();
 	$myCar->stopEngine();
+
+//------------interface------------------
+	interface Db{
+		function db_conn();
+		function db_open();
+		function db_query();
+		function db_close();
+	}
+
+	class B extends Db{
+		function db_conn(){}
+		function db_open(){}
+		function db_query(){}
+		function db_close(){}
+	}
+	//інтерфейс - це той самий самий абстрактний клас, в якому всі методі є абстрактні
+	//ми записуємо через interface і пропускаємо abstruct в методах
 ?>

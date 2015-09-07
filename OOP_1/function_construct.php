@@ -6,6 +6,7 @@
 		public $password;
 
 		function __construct($a,$b,$c)
+		//ми в цей конструктор передаємо значення із класу
 		{
 			$this->name=$a;
 			$this->login=$b;

@@ -36,6 +36,11 @@ try
 		function __construct($a="",$b="",$c="")
 		//вставляєм по замовчуванню пусті строки
 		//якщо нічого не прийде, тоді буде пуста строка
+		//це для того, щоб не вибивало помилки, що не всі параметри є передані
+
+		//в цьому варіанті коду, при відсутності якогось параметру в коді
+		//не буде виведено ніяких даних юзера, тому що при виконанні умови if
+		//виконання блоку try припиняється і виконується catch.
 		{
 			try
 			{
@@ -88,96 +93,96 @@ try
 
 //-----------------new version----------------------------	
 
-	// class nameExc extends Exception
-	// {
-	// 	function __construct($msg)
-	// 		{
-	// 			echo $msg .= " name!";
-	// 		}
-	// }
+	class nameExc extends Exception
+	{
+		function __construct($msg)
+			{
+				echo $msg .= " name!";
+			}
+	}
 
-	// class loginExc extends Exception
-	// {
-	// 	function __construct($msg)
-	// 		{
-	// 			echo $msg .= " login!";
-	// 		}
-	// }
+	class loginExc extends Exception
+	{
+		function __construct($msg)
+			{
+				echo $msg .= " login!";
+			}
+	}
 
-	// class passExc extends Exception
-	// {
-	// 	function __construct($msg)
-	// 		{
-	// 			echo $msg .= " password!";
-	// 		}
-	// }
+	class passExc extends Exception
+	{
+		function __construct($msg)
+			{
+				echo $msg .= " password!";
+			}
+	}
 
-	// class User
-	// {
-	// 	public $name;
-	// 	public $login;
-	// 	public $password;
+	class User
+	{
+		public $name;
+		public $login;
+		public $password;
 
-	// 	function __construct($a="",$b="",$c="")
-	// 	{
-	// 		try
-	// 		{
-	// 			if ($a=="")
-	// 				throw new nameExc ("<br>Введіть");
-	// 				$this->name=$a;
-	// 			if ($b=="")
-	// 				throw new loginExc ("<br>Введіть");
-	// 				$this->login=$b;
-	// 			if ($c=="")
-	// 				throw new passExc ("<br>Введіть");
-	// 				$this->password=$c;
-	// 		}
-	// 		catch(nameExc $e)
-	// 		{
-	// 			echo $e->getMessage();
-	// 		}
-	// 		catch(loginExc $e)
-	// 		{
-	// 			echo $e->getMessage();
-	// 		}
-	// 		catch(passExc $e)
-	// 		{
-	// 			echo $e->getMessage();
-	// 		}
-	// 	}
+		function __construct($a="",$b="",$c="")
+		{
+			try
+			{
+				if ($a=="")
+					throw new nameExc ("<br>Введіть");
+					$this->name=$a;
+				if ($b=="")
+					throw new loginExc ("<br>Введіть");
+					$this->login=$b;
+				if ($c=="")
+					throw new passExc ("<br>Введіть");
+					$this->password=$c;
+			}
+			catch(nameExc $e)
+			{
+				echo $e->getMessage();
+			}
+			catch(loginExc $e)
+			{
+				echo $e->getMessage();
+			}
+			catch(passExc $e)
+			{
+				echo $e->getMessage();
+			}
+		}
 
-	// 	function showInfo()
-	// 	{
-	// 		echo "<p>Name: ".$this->name."<br>"."Login: ".$this->login."<br>"."Password: ".$this->password."<br>";
-	// 	}
-	// }
+		function showInfo()
+		{
+			echo "<p>Name: ".$this->name."<br>"."Login: ".$this->login."<br>"."Password: ".$this->password."<br>";
+		}
+	}
 
-	// class SuperUser extends User
-	// {
-	// 	public $role;
+	class SuperUser extends User
+	{
+		public $role;
 
-	// 	function __construct($a,$b,$c,$d)
-	// 	{
-	// 		parent:: __construct($a,$b,$c);
-	// 		$this->role=$d;
-	// 	}
+		function __construct($a,$b,$c,$d)
+		{
+			parent:: __construct($a,$b,$c);
+			$this->role=$d;
+		}
 
-	// 	function showInfo()
-	// 	{
-	// 		parent:: showInfo();
-	// 		echo "Role: ".$this->role."<br>";
-	// 	}
-	// }
+		function showInfo()
+		{
+			parent:: showInfo();
+			echo "Role: ".$this->role."<br>";
+		}
+	}
 
-	// $aaaa1 = new User(123,456,789);
-	// echo $aaaa1->showInfo();
+	$aaaa1 = new User(123,456,789);
+	echo $aaaa1->showInfo();
 
-	// $aaaa2 = new User(456,789);
-	// echo $aaaa2->showInfo();
+	$aaaa2 = new User(456,789);
+	echo $aaaa2->showInfo();
 
-	// $aaaa3 = new User(123,456,789);
-	// echo $aaaa3->showInfo();
+	$aaaa3 = new User(123,456,789);
+	echo $aaaa3->showInfo();
 
-	// $aaaa4 = new SuperUser(123,456,789999,"admin");
-	// echo $aaaa4->showInfo();
+	$aaaa4 = new SuperUser(123,456,789999,"admin");
+	echo $aaaa4->showInfo();
 ?>

@@ -4,9 +4,11 @@
 
 		function printHands(){
 			echo "<br>".self::HANDS;
+			//звернення до константи в класі
 		}
 	}
 	echo "К-ть рук - ".Human::HANDS;
+	//звернення до константи поза класом
 	$a = new Human();
 	$a->printHands();
 

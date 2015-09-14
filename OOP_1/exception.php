@@ -93,96 +93,72 @@ try
 
 //-----------------new version----------------------------	
 
-	class nameExc extends Exception
-	{
-		function __construct($msg)
-			{
-				echo $msg .= " name!";
-			}
+	class Name extends Exception{
+		function __construct($msg){
+			echo $msg .= " - name"."<br>";
+		}
 	}
 
-	class loginExc extends Exception
-	{
-		function __construct($msg)
-			{
-				echo $msg .= " login!";
-			}
+	class Login extends Exception{
+		function __construct($msg){
+			echo $msg .= " - login"."<br>";
+		}
 	}
 
-	class passExc extends Exception
-	{
-		function __construct($msg)
-			{
-				echo $msg .= " password!";
-			}
+	class Pass extends Exception{
+		function __construct($msg){
+			echo $msg .= " - pass"."<br>";
+		}
 	}
 
-	class User
-	{
+	class User{
 		public $name;
 		public $login;
-		public $password;
+		public $pass;
 
-		function __construct($a="",$b="",$c="")
-		{
-			try
-			{
-				if ($a=="")
-					throw new nameExc ("<br>Введіть");
-					$this->name=$a;
-				if ($b=="")
-					throw new loginExc ("<br>Введіть");
-					$this->login=$b;
-				if ($c=="")
-					throw new passExc ("<br>Введіть");
-					$this->password=$c;
-			}
-			catch(nameExc $e)
-			{
-				echo $e->getMessage();
-			}
-			catch(loginExc $e)
-			{
-				echo $e->getMessage();
-			}
-			catch(passExc $e)
-			{
-				echo $e->getMessage();
-			}
+		function __construct($a,$b,$c){
+			try{
+				if ($a=="") throw new Name("Введенні не всі дані");
+				//це означає, що в конструктор класу Name передаємо текстове значення
+					$this->name = $a;
+				if ($b=="") throw new Login("Введенні не всі дані");
+					$this->login = $b;
+				if ($c=="") throw new Pass("Не введено третє значення");
+					$this->pass = $c;
+				}
+				catch (Name $w){
+					echo $w->getMessage();
+				}
+				catch (Login $w){
+					echo $w->getMessage();
+				}
+				catch (Pass $w){
+					echo $w->getMessage();
+				}
 		}
 
-		function showInfo()
-		{
-			echo "<p>Name: ".$this->name."<br>"."Login: ".$this->login."<br>"."Password: ".$this->password."<br>";
+		function showInfo(){
+			echo $this->name."<br>".$this->login."<br>".$this->pass."<br><hr>";
 		}
 	}
 
-	class SuperUser extends User
-	{
+	class SuperUser extends User{
 		public $role;
 
-		function __construct($a,$b,$c,$d)
-		{
-			parent:: __construct($a,$b,$c);
-			$this->role=$d;
+		function __construct($a,$b,$c,$d){
+			parent::__construct($a,$b,$c);
+			$this->role = $d;
 		}
 
-		function showInfo()
-		{
-			parent:: showInfo();
-			echo "Role: ".$this->role."<br>";
+		function showInfo(){
+			parent::showInfo();
+			echo $this->role;
 		}
 	}
 
-	$aaaa1 = new User(123,456,789);
-	echo $aaaa1->showInfo();
+	$user1 = new User("івіві","xccxc","ffdfd");
+	$user1->showInfo();
 
-	$aaaa2 = new User(456,789);
-	echo $aaaa2->showInfo();
-
-	$aaaa3 = new User(123,456,789);
-	echo $aaaa3->showInfo();
-
-	$aaaa4 = new SuperUser(123,456,789999,"admin");
-	echo $aaaa4->showInfo();
+	$user2 = new SuperUser("",tar14,12345,пацан);
+	$user2->showInfo();
 ?>

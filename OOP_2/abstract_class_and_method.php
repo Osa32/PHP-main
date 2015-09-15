@@ -1,11 +1,14 @@
 <?php
 //----------------abstract---------------
 	abstract class Car {
+	//об'єкт не може містити екземпляр абстрактного класу
 		public $petrol;
 		function startEngine(){
 			echo "Двигун завівся";
 		}
+		//оголосили публічний метод, який буде доступний через наслідуваний клас
 		abstract function stopEngine();
+		//оголосили абстрактний метод
 	}
 
 	class InjectorCar extends Car {

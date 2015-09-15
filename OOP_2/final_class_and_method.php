@@ -7,6 +7,7 @@
 	class B extends A{
 		function db_conn(){}
 	}
+	//видасть помилку - Class B may not inherit from final class (A)
 
 	$o1 = new B();
 ?>

@@ -25,7 +25,7 @@
 	$myCar = new InjectorCar();
 	$myCar->startEngine();
 	$myCar->stopEngine();
-
+	//абстрактиний клас не може бути використаний для створення об'єкту (через new), його можна лише унаслідувати
 //------------interface------------------
 	interface Db{
 		function db_conn();

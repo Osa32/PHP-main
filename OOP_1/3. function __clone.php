@@ -1,6 +1,11 @@
 <?php
 	class vvv{
 		public $eee=1;
+		
+		function __construct(){
+			$this -> eee = 5;
+		}
+
 		function __clone()
 		{
 			$this->eee=2;

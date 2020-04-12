@@ -25,11 +25,11 @@
 		echo "Швидкість ".$this->a;
 		} 
 	}
-//----------------------------------
+
 $car1 = new Car();
 $car1->getSpeed();
-?>
 
+//----------------------------------
 class Car
 {
   public $a = 2;
@@ -41,3 +41,4 @@ class Car
 
 $car1 = new Car;
 echo $car1->Osa2(300);
+?>

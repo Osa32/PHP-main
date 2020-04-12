@@ -95,4 +95,41 @@ try
 
 	$user2 = new SuperUser("",tar14,12345,пацан);
 	$user2->showInfo();
+-----------------------------------------------------------------
+class myException1 extends Exception{
+}
+
+class myException2 extends Exception{
+}
+
+function qqq ($x) {
+	if ($x == 0) {
+		throw new myException1("Catched myException1");
+	}
+
+	if ($x == 5){
+		throw new myException2("Catched myException2");
+	}
+
+	echo 1/$x."<br>";
+}
+
+try {
+	echo qqq (2);
+	echo qqq (5); //як тільки ловиться ексепшн, скрипт виходить із блоку try
+}
+catch (myException1 $b) {
+	echo $b->getMessage()."<br>";
+}
+// catch (myException2 $b) {
+// 	echo $b->getMessage()."<br>";
+// }
+finally {
+	echo "Виконався блок фіналлі";
+}
+// тобто якщо ми в блоці try виловим помилку згіджно умов, що визначені в throw
+// то ми виведемо помилку у форматі, який визначений в блоці catch. Зауважимо,
+// що якщо в блоці try виконається умова, що виловлена через throw і для неї не 
+// буде задано вивід в блоці catch, то повернеться помилка -
+// Fatal error: Uncaught myException2: Catched myException2
 ?>

@@ -95,35 +95,39 @@ try
 
 	$user2 = new SuperUser("",tar14,12345,пацан);
 	$user2->showInfo();
+
 -----------------------------------------------------------------
-class myException1 extends Exception{
+
+class generalException extends Exception{
 }
 
-class myException2 extends Exception{
+class myException1 extends generalException{
+	public $message = "Catched myException1";
+}
+
+class myException2 extends generalException{
+	public $message = "Catched myException2"; // ця властивість по дефолту визначена в класі, значення якої повертає вбудований метод getMessage()
 }
 
 function qqq ($x) {
 	if ($x == 0) {
-		throw new myException1("Catched myException1");
+		throw new myException1;
 	}
 
 	if ($x == 5){
-		throw new myException2("Catched myException2");
+		throw new myException2;
 	}
-
 	echo 1/$x."<br>";
 }
 
 try {
 	echo qqq (2);
-	echo qqq (5); //як тільки ловиться ексепшн, скрипт виходить із блоку try
+	echo qqq (0); //як тільки ловиться ексепшн, скрипт виходить із блоку try
+	
 }
 catch (myException1 $b) {
 	echo $b->getMessage()."<br>";
 }
-// catch (myException2 $b) {
-// 	echo $b->getMessage()."<br>";
-// }
 finally {
 	echo "Виконався блок фіналлі";
 }

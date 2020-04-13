@@ -123,7 +123,12 @@ class myException1 extends generalException{
 }
 
 class myException2 extends generalException{
-	public $message = "Catched myException2"; // ця властивість по дефолту визначена в класі, значення якої повертає вбудований метод getMessage()
+	public $message = "Catched myException2"; //властивість $message по дефолту визначена в класі, 
+                                                  //значення якої повертає вбудований метод getMessage()
+	                                          //також можна передавати строку в конструктор методу
+	                                          //коли задаємо умову для Ексепшена (throw new), вона також
+                                                  //буде повертатись при виклику методу getMessage().
+                                                  //див. самий перший приклад.
 }
 
 function qqq ($x) {

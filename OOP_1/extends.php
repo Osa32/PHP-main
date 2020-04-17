@@ -2,9 +2,10 @@
 	class vvv
 	{
 		public $eeee=1;
-		}
-		class aaa extends vvv
-		{
+	}
+
+	class aaa extends vvv
+	{
 		public $eeee=2;
 	}
 	

@@ -49,6 +49,8 @@ $qqq->www();
 // return "class Foo" as we used parent:: operator. If we will use self:: operator we will get "class Bar".
 // parent:: and self:: working with both, static and non static functions/methods.
 
+-----------------------------------
+
 // can't redeclare static function to non static and vise versa. Below we will get an error
 
 class Foo
@@ -97,5 +99,4 @@ class Aaa {
 }
 
 $qqq = new Aaa;
-
 $qqq->a(); // використання будь-яких трьох операторів поверне успіх

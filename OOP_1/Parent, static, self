@@ -1,5 +1,77 @@
 <?php
 
+// self:: ---------------------------------
+
+class Foo
+{
+    public static $my_static = 'sraka';
+    public function staticValue() {
+        return $this->my_static;
+    }
+$qqq = new Foo;
+echo $qqq->staticValue(); 
+}
+
+   public $my_static = 'sraka';
+   public static function staticValue() {
+        return $this->my_static;
+    }
+$qqq = new Foo;
+echo $qqq->staticValue();
+}
+
+// поверне помилку в обох випадках, бо ми не можемо викликати статичні властивості і методи через $this,
+// або навпаки, із статичного методу викликати інший метод або властивість. Тут потрібно використовувати self::
+
+// parent:: ---------------------------------
+
+class Foo
+{
+    public function qqq() {
+        echo "class Foo";
+    }
+}
+
+class Bar extends Foo
+{
+    public function qqq() {
+        echo "class Bar";
+    }
+
+    public function www() {
+    	echo parent::qqq();
+    }
+}
+
+$qqq = new Bar;
+$qqq->www();
+
+// return "class Foo" as we used parent:: operator. If we will use self:: operator we will get "class Bar".
+// parent:: and self:: working with both, static and non static functions/methods.
+
+// can't redeclare static function to non static and vise versa. Below we will get an error
+
+class Foo
+{
+    public static function qqq() {
+        echo "class Foo";
+    }
+}
+
+class Bar extends Foo
+{
+    public function qqq() {
+        echo "class Bar";
+    }
+}
+
+
+
+
+
+
+
+
 class Aaa {
    public static function a() {
    		echo "kurva";

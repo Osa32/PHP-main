@@ -81,7 +81,8 @@ class Bbb extends Aaa {
 
 $qqq = new Bbb;
 
-$qqq->a(); // return - kurva. If we will use static or self insted of parent will be an error.
+$qqq->a(); // return - kurva. If we will use self insted of parent will be an error
+// as the function a will be redeclare.
 
 ---------------------------------
 

@@ -65,12 +65,7 @@ class Bar extends Foo
     }
 }
 
-
-
-
-
-
-
+---------------------------------
 
 class Aaa {
    public static function a() {
@@ -87,6 +82,8 @@ class Bbb extends Aaa {
 $qqq = new Bbb;
 
 $qqq->a(); // return - kurva. If we will use static or self insted of parent will be an error.
+
+---------------------------------
 
 class Aaa {
    public function a() {

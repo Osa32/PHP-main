@@ -15,3 +15,17 @@ class Bbb extends Aaa {
 $qqq = new Bbb;
 
 $qqq->a(); // return - kurva. If we will use static or self insted of parent will be an error.
+
+class Aaa {
+   public function a() {
+   		echo "kurva";
+   }
+
+   public function b() {
+ 		static::a();
+   }
+}
+
+$qqq = new Aaa;
+
+$qqq->a(); // використання будь-яких трьох операторів поверне успіх

@@ -1,0 +1,17 @@
+<?php
+
+class Aaa {
+   public static function a() {
+   		echo "kurva";
+   }
+}
+
+class Bbb extends Aaa {
+   public static function a() {
+   		parent::a();
+   }
+}
+
+$qqq = new Bbb;
+
+$qqq->a(); // return - kurva. If we will use static or self insted of parent will be an error.

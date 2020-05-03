@@ -41,9 +41,44 @@
 		}else{
 			require_once "core/".$class.".php";
 		}
-
 	}
 
 	$human = new index2;
 	$human->qqq();
-?>
+		
+	// ---------------------
+	// використання spl_autoload_register. Приймає один основний аргумент - назву ф-ції для автолоаду
+	// нижче код виконається успішно
+		
+	function myautoload($class) {
+		if (file_exists($class.".php")) {
+			require_once $class.".php";
+		}else{
+			require_once "core/".$class.".php";
+		}
+	}
+
+	spl_autoload_register('myautoload');
+
+	$human = new index2;
+	$human->qqq();
+
+	// ---------------------
+	// використання spl_autoload_register із об'єктами. Приймає масив аргументів, де перший, це є назва класу
+	// а другий аргумент це назва методу. Метод при цьому має бути чомусь статичним
+
+	spl_autoload_register(['Autoloadclass', 'myautoload']);
+
+	$human = new index2;
+	$human->qqq();
+
+	class Autoloadclass{
+
+	public static function myautoload($class) {
+		if (file_exists($class.".php")) {
+			require_once $class.".php";
+		}else{
+			require_once "core/".$class.".php";
+			}
+		}
+	}

@@ -20,4 +20,5 @@
 
 		$aaaa1 = new User(123,456,789);
 		echo $aaaa1->viewInfo();
-?>
+
+// __construct викликається лише коли є new
